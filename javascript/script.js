@@ -185,7 +185,7 @@ function game() {
 	kontenJS.appendChild(hitM);
 	kontenJS.appendChild(inputanJS);
 	kontenJS.appendChild(keteranganMain);
-	(function() {
+	setTimeout(function() {
 		kontenJS.removeChild(keteranganMain);
 	}, 5000);
 
