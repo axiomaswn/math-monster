@@ -138,9 +138,6 @@ buttonPlayAgainJS.addEventListener('click', function() {
 	fungsiCara();
 });
 // fungsi button klik
-function loading(){
-
-};
 
 function home(){
 suaraMenu.play();	
@@ -159,6 +156,7 @@ function fungsiCara(){
 	energyMonster = 1200;
 	suaraGameOver.pause();
 	suaraMenu.play();
+	clearTimeout(berhentiAnimasiDepan);
 	document.getElementById('animasiDepan').style.visibility ='hidden';
 	kontenJS.appendChild(backgroundHomeJS);
 	kontenJS.appendChild(backgroundWinJS);
@@ -187,7 +185,7 @@ function game() {
 	kontenJS.appendChild(keteranganMain);
 	setTimeout(function() {
 		kontenJS.removeChild(keteranganMain);
-	}, 5000);
+	}, 4000);
 
 	document.getElementById('monsterChar').style.visibility ='visible';
 	document.getElementById('playerChar').style.visibility ='visible';
@@ -213,7 +211,7 @@ function game() {
 					}, 1500);
 					clearTimeout(waktuTimeoutMonster);
 				}
-	}, 8000);
+	}, 10000);
 	pertanyaan();
 };
 
@@ -223,7 +221,7 @@ inputanJS.addEventListener('keypress', function (e) {
     	z = z.toString();
 		if(inputanJS.value===z){
 			document.getElementById("monsterChar").src = "images/monster/monsterHit.png";
-			hitMonster = Math.floor((Math.random() * 100) + 50)
+			hitMonster = Math.floor((Math.random() * 100) + 30)
 			console.log('Power hit '+hitMonster);
 			suaraHitM.play();
 			document.getElementsByTagName('h5')[1].innerHTML = 'Energy -'+hitMonster;
@@ -235,7 +233,7 @@ inputanJS.addEventListener('keypress', function (e) {
 		}
 		else{
 			document.getElementById("playerChar").src = "images/player/playerHit.png";
-			hitPlayer = Math.floor((Math.random() * 100) + 50)
+			hitPlayer = Math.floor((Math.random() * 100) + 30)
 			console.log('Mons+er defense '+hitPlayer);
 			suaraHitP.play();
 			document.getElementsByTagName('h5')[0].innerHTML = 'Energy -'+hitPlayer;
