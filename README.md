@@ -1,3 +1,1 @@
 # MathMonster
-
-## revisi 1

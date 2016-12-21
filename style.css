@@ -113,6 +113,18 @@
     margin: auto;
     text-align: center;
 }
+
+#hitungWaktu{
+    font-family: "Toyzarux";
+    position: absolute;
+    top: 55%;
+    color: black;
+    font-size: 30;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
 #monsterChar{
   position: absolute;
     bottom: 22%;
@@ -124,6 +136,23 @@
     bottom: 22%;
     left: 19%;
     width: 80;
+}
+#loadingIcon{
+	position: absolute;
+	top: 36%;
+	left: 21%;
+	width: 80px;
+}
+#loadingText {
+	text-align: center;
+    color: #474443;
+    font-family: 'Toyzarux';
+    font-size: 38px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 h1 {
     position: absolute;
