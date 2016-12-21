@@ -16,7 +16,6 @@
 }
 #konten{
 	position: relative;
-	background-image: url('images/background/main.png');
 	width: 800;
 	height: 600;
 	color: white;
@@ -29,9 +28,34 @@
 	bottom: 12%;
 	left: 30%;
 }
-#buttonAgain {
+#backgroundHome{
+	position: static;
+	width: 800;
+	height: 600;
+}
+#backgroundCara{
+	position: static;
+	width: 800;
+	height: 600;
+}
+#backgroundGame{
+	position: static;
+	width: 800;
+	height: 600;
+}
+#backgroundLose{
+	position: static;
+	width: 800;
+	height: 600;
+}
+#backgroundWin{
+	position: absolute;
+	width: 800;
+	height: 600;
+}
+#buttonPlayAgain {
 	background-color: #58B7FF;
-	border: solid 2px;
+	border: solid 4px;
 	border-radius: 8px;
 	color: white;
 	cursor: pointer;
@@ -45,13 +69,13 @@
 	font-family: 'Arial Black';
 	transition: 1s;
 }
-#buttonAgain:hover{
+#buttonPlayAgain:hover{
 	transition: 1s;
 	background-color: #0B6EC7;
 }
-#button {
+#buttonPlay {
 	background-color: #58B7FF;
-	border: solid 2px;
+	border: solid 4px;
 	border-radius: 8px;
 	color: white;
 	cursor: pointer;
@@ -65,7 +89,7 @@
 	font-family: 'Arial Black';
 	transition: 1s;
 }
-#button:hover{
+#buttonPlay:hover{
 	transition: 1s;
 	background-color: #0B6EC7;
 }
