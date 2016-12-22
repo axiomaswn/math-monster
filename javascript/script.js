@@ -26,7 +26,7 @@ buttonPlayAgainJS.appendChild(buttonLagiText);
 
 inputanJS = document.createElement('input');
 inputanJS.setAttribute('type','text');
-inputanJS.setAttribute('maxlength','3');
+inputanJS.setAttribute('maxlength','4');
 inputanJS.setAttribute('id','inputanJawab');
 
 waktuJS = document.createElement('h3');
