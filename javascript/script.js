@@ -67,10 +67,12 @@ keteranganMain.appendChild(keteranganMainText);
 playerCharJS = document.createElement('img');
 playerCharJS.setAttribute('id','playerChar');
 kontenJS.appendChild(playerCharJS);
+document.getElementById("playerChar").src = "images/player/playerHit.png";
 
 monsterCharJS = document.createElement('img');
 monsterCharJS.setAttribute('id','monsterChar');
 kontenJS.appendChild(monsterCharJS);
+document.getElementById("monsterChar").src = "images/monster/monsterHit.png";
 //background all
 backgroundHomeJS = document.createElement('img');
 backgroundHomeJS.setAttribute('id','backgroundHome');
