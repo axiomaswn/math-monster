@@ -436,7 +436,7 @@ function fungsiInputUser() {
 
 	buttonInputJS = document.createElement('button');
 	buttonInputJS.setAttribute('id','buttonInput');
-	buttonInputJSText = document.createTextNode('submit');
+	buttonInputJSText = document.createTextNode('your name?');
 	buttonInputJS.appendChild(buttonInputJSText);
 	kontenJS.appendChild(buttonInputJS);
 
