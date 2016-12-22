@@ -1,15 +1,14 @@
 var body = document.body;
-
-kontenJS = document.createElement('div'); //membuat div konten
-kontenJS.setAttribute('id', 'konten');
-body.appendChild(kontenJS);        
-
 var energyPlayer  = 0;
 var energyMonster = 0;
 var waktuTimeoutMonster = '';
 var berhentiAnimasiGame = '';
 var berhentiAnimasiDepan ='';
 var henti1 = '', henti2 = '', henti3 = '', henti4 = '', henti5 = '', henti6='', henti7='', henti8='', henti9='', henti10='';
+
+kontenJS = document.createElement('div'); //membuat div konten
+kontenJS.setAttribute('id', 'konten');
+body.appendChild(kontenJS);        
 
 playerDepan = document.createElement('img');
 playerDepan.setAttribute('id','animasiDepan');
@@ -27,7 +26,8 @@ buttonPlayAgainJS.appendChild(buttonLagiText);
 
 inputanJS = document.createElement('input');
 inputanJS.setAttribute('type','text');
-inputanJS.setAttribute('id','inputan');
+inputanJS.setAttribute('maxlength','3');
+inputanJS.setAttribute('id','inputanJawab');
 
 waktuJS = document.createElement('h3');
 waktuJS.setAttribute('id','hitungWaktu');
@@ -221,8 +221,8 @@ function home(){
 };
 
 function fungsiCara(){
-	energyPlayer  = 700;
-	energyMonster = 1200;
+	energyPlayer  = 1200;
+	energyMonster = 100;
 	suaraGameOver.pause();
 	suaraMenu.play();
 	clearTimeout(berhentiAnimasiDepan);
@@ -262,7 +262,7 @@ function game() {
 
 	pertanyaan();
 };
-
+var nilaiAkhir = 'kosong';//dijadikan nilai akhir score
 function pertanyaan() {
 	x = Math.floor((Math.random() * 100) + 33)
 	y = Math.floor((Math.random() * 100) + 33)
@@ -295,6 +295,7 @@ function pertanyaan() {
 			setTimeout(function() {
 				kalah();
 			}, 1500);
+			hentikanWaktu();
 			clearTimeout(waktuTimeoutMonster);
 			
 		}
@@ -304,6 +305,7 @@ function pertanyaan() {
 			setTimeout(function() {
 				menang();
 			}, 1500);
+			hentikanWaktu();
 			clearTimeout(waktuTimeoutMonster);
 		}
 	inputanJS.focus();  
@@ -323,6 +325,7 @@ inputanJS.addEventListener('keypress', function (e) {
 			document.getElementsByTagName('h5')[1].innerHTML = '';
 			}, 1500);
 			energyMonster = energyMonster-hitMonster;
+			nilaiAkhir = energyPlayer; // tentukan nilai akhir score
 			inputanJS.value='';			
 		}
 		else{
@@ -344,12 +347,14 @@ inputanJS.addEventListener('keypress', function (e) {
 });
 
 function menang(){
+	document.getElementById('hitungWaktu').innerHTML = '';
 	suaraMenu.pause();
 	suaraGame.pause();
 	suaraGameOver.play();
 	kontenJS.removeChild(soal);
 	kontenJS.removeChild(energyM);
 	kontenJS.removeChild(energyP);
+	inputanJS.value='';	
 	kontenJS.removeChild(inputanJS);
 	kontenJS.removeChild(waktuJS);	
 	kontenJS.removeChild(hitP);
@@ -357,18 +362,23 @@ function menang(){
 	kontenJS.removeChild(backgroundGameJS);
 	kontenJS.appendChild(backgroundWinJS);
 	document.getElementById('monsterChar').style.visibility ='hidden';
-	document.getElementById('playerChar').style.visibility ='hidden';
-	inputanJS.value='';	
-	kontenJS.appendChild(buttonPlayAgainJS);
+	document.getElementById('playerChar').style.visibility ='hidden';	
+	setTimeout(function() {
+		kontenJS.removeChild(backgroundWinJS);				
+		fungsiInputUser();
+	}, 3000);
+
 }
 
 function kalah(){
+	document.getElementById('hitungWaktu').innerHTML = '';
 	suaraMenu.pause();
 	suaraGame.pause();
 	suaraGameOver.play();
 	kontenJS.removeChild(soal);
 	kontenJS.removeChild(energyM);
 	kontenJS.removeChild(energyP);
+	inputanJS.value='';	
 	kontenJS.removeChild(inputanJS);
 	kontenJS.removeChild(waktuJS);	
 	kontenJS.removeChild(hitP);
@@ -377,9 +387,115 @@ function kalah(){
 	kontenJS.appendChild(backgroundLoseJS);
 	document.getElementById('monsterChar').style.visibility ='hidden';
 	document.getElementById('playerChar').style.visibility ='hidden';	
-	inputanJS.value='';	
-	kontenJS.appendChild(buttonPlayAgainJS);
+	setTimeout(function() {
+		kontenJS.removeChild(backgroundLoseJS);				
+		fungsiHighScore();
+	}, 3000);
+
 }
+var user = [['mangata','210'],['mangata99','24'],['ruth','237'],['kaze00','187'],['zero','78'],['mimi','43']];
+
+function fungsiInputUser() {
+document.getElementById('konten').style.backgroundImage="url(images/background/input.png)"; 
+	inputUserJS = document.createElement('input');
+	inputUserJS.setAttribute('type','text');
+	inputUserJS.setAttribute('maxlength','7');
+	inputUserJS.setAttribute('placeholder','username');
+	inputUserJS.setAttribute('id','inputUser');
+	kontenJS.appendChild(inputUserJS);
+	inputUserJS.focus();
+
+	buttonInputJS = document.createElement('button');
+	buttonInputJS.setAttribute('id','buttonInput');
+	buttonInputJSText = document.createTextNode('submit');
+	buttonInputJS.appendChild(buttonInputJSText);
+	kontenJS.appendChild(buttonInputJS);
+
+	buttonInputJS.addEventListener('click', function() {
+		if(inputUserJS.value===''){
+			inputUserJS.value = 'no name';
+		}
+		user.push([inputUserJS.value,nilaiAkhir]);
+		user = user.sort(function(a,b){return b[1]-a[1]});
+		kontenJS.removeChild(buttonInputJS);
+		kontenJS.removeChild(inputUserJS);		
+		setTimeout(function() {
+		fungsiHighScore();
+	}, 1000);
+	});
+}
+
+function fungsiHighScore(){
+document.getElementById('konten').style.backgroundImage="url(images/background/highscore.png)"; 
+	
+	kontenHighScoreJS = document.createElement('div');
+	kontenHighScoreJS.setAttribute('id', 'kontenHighScore');
+	kontenJS.appendChild(kontenHighScoreJS);	
+	
+	for(let i=0 ; i<5 ; i++){
+
+		scoreUserJS = document.createElement('h4');
+		scoreUserJS.setAttribute('id','namaUser'+i);
+		scoreUserJSText = document.createTextNode(user[i][0]);
+		scoreUserJS.appendChild(scoreUserJSText);	
+		kontenHighScoreJS.appendChild(scoreUserJS);
+
+		nilaiUserJS = document.createElement('h4');
+		nilaiUserJS.setAttribute('id','nilaiUser'+i);
+		nilaiUserJSText = document.createTextNode(user[i][1]);
+		nilaiUserJS.appendChild(nilaiUserJSText);	
+		kontenHighScoreJS.appendChild(nilaiUserJS);
+	};
+
+	homeScoreJS = document.createElement('h4');
+	homeScoreJS.setAttribute('id','homeScore');
+	homeScoreJSText = document.createTextNode('home');
+	homeScoreJS.appendChild(homeScoreJSText);	
+	kontenHighScoreJS.appendChild(homeScoreJS);	
+
+	buttonPlayScoreJS = document.createElement('button');
+	buttonPlayScoreJS.setAttribute('id','buttonPlayScore');
+	buttonPlayScoreJSJSText = document.createTextNode('play again');
+	buttonPlayScoreJS.appendChild(buttonPlayScoreJSJSText);
+	kontenHighScoreJS.appendChild(buttonPlayScoreJS);	
+
+	homeScoreJS.addEventListener('click', function() {
+		kontenJS.removeChild(kontenHighScoreJS);
+		homeLagi();
+	});
+
+	buttonPlayScoreJS.addEventListener('click', function() {
+		kontenJS.removeChild(kontenHighScoreJS);
+		fungsiCara();
+	});
+
+}
+
+function homeLagi(){
+	suaraGameOver.pause();
+	suaraMenu.play();	
+	kontenJS.appendChild(buttonPlayJS);
+	kontenJS.appendChild(backgroundHomeJS);
+	function fungsiAnimasiDepan() {
+		z = (z === images.length - 1) ? 0 : z + 1;
+		document.getElementById("animasiDepan").src = images[z];
+	}
+	var images = [], z = -1;
+	var images = [
+		"images/player/frame-1.png",
+		"images/player/frame-2.png",
+		"images/player/frame-3.png",
+		"images/player/frame-4.png",
+		"images/player/frame-5.png",
+		"images/player/frame-6.png",
+	], z = -1;
+
+	function fungsiMulaiAnimasiDepan() {
+		berhentiAnimasiDepan = setInterval(fungsiAnimasiDepan, 150);
+	};
+	fungsiMulaiAnimasiDepan(); 
+	document.getElementById("animasiDepan").style.visibility='visible';	
+};
 
 //MULAIIIIIII
 loadingAwal();
