@@ -429,14 +429,14 @@ function fungsiInputUser() {
 	inputUserJS = document.createElement('input');
 	inputUserJS.setAttribute('type','text');
 	inputUserJS.setAttribute('maxlength','7');
-	inputUserJS.setAttribute('placeholder','username');
+	inputUserJS.setAttribute('placeholder','your name?');
 	inputUserJS.setAttribute('id','inputUser');
 	kontenJS.appendChild(inputUserJS);
 	inputUserJS.focus();
 
 	buttonInputJS = document.createElement('button');
 	buttonInputJS.setAttribute('id','buttonInput');
-	buttonInputJSText = document.createTextNode('your name?');
+	buttonInputJSText = document.createTextNode('submit');
 	buttonInputJS.appendChild(buttonInputJSText);
 	kontenJS.appendChild(buttonInputJS);
 
