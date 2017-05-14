@@ -1,10 +1,15 @@
-@font-face { 
-	font-family: Toyzarux; 
-	src: url('font/TOYZARUX.TTF'); 
-} 
+@font-face {
+	font-family: Toyzarux;
+	src: url('https://s3-ap-southeast-1.amazonaws.com/generalhacktiv8/TOYZARUX.ttf');
+}
+@font-face {
+	font-family: Arial Black;
+	src: url('https://s3-ap-southeast-1.amazonaws.com/generalhacktiv8/TOYZARUX.ttf');
+}
 #konten{
-	position: relative;
+
 	width: 800;
+position: relative;
 	height: 600;
 	color: white;
 	display: block;
@@ -15,7 +20,7 @@
 	position: absolute;
 	top: 8px;
 	right: 30px;
-}    
+}
 #energyP{
 	font-family: "Toyzarux";
 	position: absolute;
@@ -69,7 +74,7 @@
 	border-radius: 8px;
 	color: white;
 	cursor: pointer;
-	font-size: 20px;
+	font-size: 10px;
 	font-weight:bold;
 	padding: 10px 20px;
 	text-align: center;
@@ -89,7 +94,7 @@
 	border-radius: 8px;
 	color: white;
 	cursor: pointer;
-	font-size: 20px;
+	font-size: 15px;
 	font-weight:bold;
 	padding: 10px 20px;
 	text-align: center;
@@ -114,7 +119,7 @@
 	position: absolute;
     bottom: 8%;
     right: 20%;
-}  
+}
 #keterangan{
     font-family: "Toyzarux";
     position: absolute;
@@ -140,7 +145,7 @@
     bottom: 22%;
     right: 15%;
     width: 160;
-}    
+}
 #playerChar{
   position: absolute;
     bottom: 22%;
@@ -166,13 +171,13 @@
 }
 h1 {
     position: absolute;
-    top: 36%;
+    top: 38%;
     width: 100%;
     margin: auto;
     text-align: center;
     color: #474443;
     font-family: 'Arial Black';
-    font-size: 38px;
+    font-size: 25px;
 }
 
 #inputanJawab {
@@ -186,7 +191,7 @@ h1 {
 	text-align: center;
 	border-radius: 4px;
 	color: #757475;
-	font-size: 28px;
+	font-size: 20px;
 	font-weight:bold;
 	font-family: 'Arial Black';
 }
@@ -201,7 +206,7 @@ h1 {
 	text-align: center;
 	border-radius: 4px;
 	color: #757475;
-	font-size: 28px;
+	font-size: 15px;
 	font-weight:bold;
 	font-family: 'Arial Black';
 }
@@ -209,14 +214,14 @@ h1 {
 	position: absolute;
 	bottom: 35%;
 	margin-left: auto;
-	margin-right: auto;	
+	margin-right: auto;
 	left: 0;
 	right: 0;
 	width: 17%;
 	text-align: center;
 	border-radius: 8px;
 	color: white;
-	font-size: 20px;
+	font-size: 15px;
 	font-weight:bold;
 	font-family: 'Arial Black';
 	border: solid 4px;
@@ -233,14 +238,14 @@ h1 {
 	position: absolute;
 	bottom: 14%;
 	margin-left: auto;
-	margin-right: auto;	
+	margin-right: auto;
 	left: 0;
 	right: 0;
 	width: 21%;
 	text-align: center;
 	border-radius: 8px;
 	color: white;
-	font-size: 20px;
+	font-size: 15px;
 	font-weight:bold;
 	font-family: 'Arial Black';
 	border: solid 4px;
@@ -264,7 +269,7 @@ h4{
 	top: 24%;
 	left: 25%;
 	font-size: 25;
-} 
+}
 #namaUser1{
 	font-family: "Toyzarux";
 	position: absolute;
@@ -292,8 +297,8 @@ h4{
 	top: 56%;
 	left: 25%;
 	font-size: 25;
-} 
- 
+}
+
 #nilaiUser0{
 	font-family: "Toyzarux";
 	position: absolute;
